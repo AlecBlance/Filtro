@@ -13,24 +13,16 @@ declare global {
 export default defineContentScript({
   matches: ["*://*.producthunt.com/*"],
   async main() {
-    // const response = await sendMessage(
-    //   "getUrlFilter",
-    //   { sync: false },
-    //   "background"
-    // );
+    const filter = await sendMessage("filter", { sync: false }, "background");
 
-    await injectScript("/productHuntFilter.js", {
+    await injectScript("/productSift.js", {
       keepInDom: true,
     });
 
-    const filter: FilterData = {
-      urlFilter: [],
-      productTitleFilter: [],
-      productDescriptionFilter: [],
-      tagFilter: [],
-    };
+    console.log("Content script loaded for Product Hunt Filter");
+    console.log("Filter data:", filter);
 
     allowWindowMessaging("producthunt-filter");
-    await sendMessage("filter", { ...filter }, "window");
+    await sendMessage("filter", filter, "window");
   },
 });

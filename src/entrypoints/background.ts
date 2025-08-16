@@ -1,8 +1,8 @@
 import { onMessage } from "webext-bridge/background";
-import { urlFilter } from "@/utils/storage";
+import { filter } from "@/utils/storage";
 
 export default defineBackground(() => {
-  onMessage("getUrlFilter", async () => {
-    return await urlFilter.getValue();
+  onMessage("filter", async () => {
+    return await filter.getValue();
   });
 });

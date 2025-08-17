@@ -1,5 +1,0 @@
----
-"Filtro": major
----
-
-first version

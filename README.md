@@ -8,6 +8,20 @@
   A Chrome and Firefox extension for filtering Product Hunt.
 </p>
 
+<a href="https://www.producthunt.com/products/filtro?embed=true&utm_source=badge-featured&utm_medium=badge&utm_source=badge-filtro" target="_blank"><img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1006545&theme=light&t=1755524303781" alt="Filtro - Your&#0032;Product&#0032;Hunt&#0032;Filter | Product Hunt" style="width: 250px; height: 54px;" width="250" height="54" /></a>
+&nbsp;&nbsp;
+<a href="https://chromewebstore.google.com/detail/lolkfifhhidofpnnkjjeedgcgblklfbj/" target="_blank">
+<img src="https://developer.chrome.com/static/docs/webstore/branding/image/HRs9MPufa1J1h5glNhut.png"
+       alt="Get it on Chrome Web Store"
+       style="height: 58px;" />
+</a>
+&nbsp;&nbsp;
+<a href="https://addons.mozilla.org/en-US/firefox/addon/filtro/" target="_blank">
+<img src="https://blog.mozilla.org/addons/files/2015/11/get-the-addon.png" 
+       alt="Get it on Firefox Add-ons" 
+       style="height: 58px;" />
+</a>
+
 ---
 
 ## 📖 Table of Contents

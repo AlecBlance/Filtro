@@ -51,7 +51,7 @@ Product Hunt doesn’t provide filters for its product lists, which makes it har
 
 #### Chrome
 
-You can install this extension from the [Chrome Web Store]() or:
+You can install this extension from the [Chrome Web Store](https://chromewebstore.google.com/detail/lolkfifhhidofpnnkjjeedgcgblklfbj/) or:
 
 1. Download from the [latest](https://github.com/AlecBlance/Filtro/releases) release.
 2. Extract the downloaded zip file
@@ -61,7 +61,7 @@ You can install this extension from the [Chrome Web Store]() or:
 
 #### Firefox
 
-You can install this extension from the [Firefox add-ons]() or:
+You can install this extension from the [Firefox add-ons](https://addons.mozilla.org/en-US/firefox/addon/filtro/) or:
 
 1. Download from the [latest](https://github.com/AlecBlance/Filtro/releases) release.
 2. Extract the downloaded zip file

@@ -2,6 +2,7 @@ import { onMessage, setNamespace } from "webext-bridge/window";
 import { FilterData } from "@/@types";
 
 export default defineUnlistedScript(() => {
+  console.log("Product Hunt Filter script loaded");
   const comingSoonProductCardSelector = `[data-sentry-component="ViewableImpression"]`;
   const normalProductCardSelector = `section`;
 
@@ -18,12 +19,17 @@ export default defineUnlistedScript(() => {
 
   setNamespace("producthunt-filter");
   onMessage("filter", (contentScript) => {
-    const filter = contentScript.data as unknown as FilterData;
+    const { filter, include } = contentScript.data as unknown as {
+      filter: FilterData;
+      include: string[];
+    };
 
     // Remove products that is based on the filter
-    removeMatchingElements(filter);
+    removeMatchingElements(filter, include);
     // Remove again for newly added products
-    const observer = new MutationObserver(() => removeMatchingElements(filter));
+    const observer = new MutationObserver(() =>
+      removeMatchingElements(filter, include)
+    );
     observer.observe(document.body, { childList: true, subtree: true });
   });
 
@@ -44,12 +50,20 @@ export default defineUnlistedScript(() => {
       product
         .querySelector(selectors.comingSoonText)
         ?.textContent?.split(" — ") ?? [];
-    const tags = [...product.querySelectorAll(selectors.tag)].map(
-      (tag) => tag.textContent
+    const tags = [...product.querySelectorAll(selectors.tag)].reduce<string[]>(
+      (accu, tag) => {
+        return [...accu, tag.textContent, tag.getAttribute("href")!];
+      },
+      []
     );
+
+    console.log(tags);
+
     const comingSoonTags = [
       ...product.querySelectorAll(selectors.comingSoonTags),
-    ].map((tag) => tag.textContent);
+    ].reduce<string[]>((accu, tag) => {
+      return [...accu, tag.textContent, tag.getAttribute("href")!];
+    }, []);
 
     return {
       link: productLink,
@@ -60,7 +74,7 @@ export default defineUnlistedScript(() => {
   }
 
   // Removes products that match the filter criteria
-  function removeMatchingElements(filter: FilterData) {
+  function removeMatchingElements(filter: FilterData, include: string[]) {
     const {
       urlFilter,
       productDescriptionFilter,
@@ -79,13 +93,20 @@ export default defineUnlistedScript(() => {
         (descFilter) =>
           description?.toLowerCase().includes(descFilter.toLowerCase())
       );
-      const tagFilterMatch = tags.some((tag) =>
-        tagFilter.some((tagFilter) =>
-          tag.toLowerCase().includes(tagFilter.toLowerCase())
-        )
-      );
+      const tagFilterMatch = tags.some(
+        (tag) =>
+          tagFilter.some(
+            (tagFilter) => tag.toLowerCase().includes(tagFilter.toLowerCase()) // it is filtered out
+          ) && !include.includes(tag) // and not in the included list
+      ); // it should be removed in terms of excluding.
 
-      if (
+      if (include.length > 0) {
+        // if tags of product is included, return cause we remove
+        if (tags.some((tag) => include.includes(tag))) return;
+        product.remove();
+        // if included no remove if in filtered
+        // but if not included, remove if in filtered
+      } else if (
         urlFilterMatch ||
         titleFilterMatch ||
         descriptionFilterMatch ||

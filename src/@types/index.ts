@@ -5,10 +5,16 @@ export interface FilterData {
   tagFilter: string[];
 }
 
-export interface ICategory {
+export interface IGQLCategory {
   node: {
     name: string;
     path: string;
     subCategories?: { nodes: { name: string; path: string }[] };
   };
+}
+
+export interface ICategory {
+  label: string;
+  value: string;
+  parentCategory?: string;
 }

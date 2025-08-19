@@ -42,7 +42,7 @@ const InclusionSelector = () => {
         <div>
           <Input
             className="text-sm rounded-xs"
-            placeholder="Search for category"
+            placeholder="Search for tag/category"
             value={search}
             onChange={(e) => {
               const searchValue = e.target.value.toLowerCase();

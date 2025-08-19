@@ -1,4 +1,6 @@
-import InputTags from "@/entrypoints/popup/components/inputTags";
+import InputTags from "@/entrypoints/popup/components/InputTags";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import InclusionSelector from "@/entrypoints/popup/components/InclusionSelector";
 
 function App() {
   return (
@@ -16,11 +18,24 @@ function App() {
         </div>
       </div>
       <div className="p-2 space-y-2">
-        <p className="text-slate-500">
-          Type text to block products if it appears in any section: title,
-          description, tags, or URL.
-        </p>
-        <InputTags />
+        <Tabs defaultValue="include" className="w-full">
+          <TabsList className="w-full">
+            <TabsTrigger value="include" className="text-sm">
+              Include
+            </TabsTrigger>
+            <TabsTrigger value="exclude">Exclude</TabsTrigger>
+          </TabsList>
+          <TabsContent value="include" className="space-y-2">
+            <InclusionSelector />
+          </TabsContent>
+          <TabsContent value="exclude" className="flex flex-col gap-2">
+            <p className="text-slate-700">
+              Type text to block products if it appears in any section: title,
+              description, tags, or URL.
+            </p>
+            <InputTags />
+          </TabsContent>
+        </Tabs>
       </div>
     </div>
   );

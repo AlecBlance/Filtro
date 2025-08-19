@@ -2,7 +2,7 @@ import { TagsInput } from "react-tag-input-component";
 import { filter } from "@/utils/storage";
 import { FilterData } from "@/@types";
 
-const inputTags = () => {
+const InputTags = () => {
   const [filterData, setFilterData] = useState<FilterData>({
     productDescriptionFilter: [],
     productTitleFilter: [],
@@ -85,4 +85,4 @@ const inputTags = () => {
   );
 };
 
-export default inputTags;
+export default InputTags;

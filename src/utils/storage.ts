@@ -22,3 +22,12 @@ export const includeSelectedCategoriesStorage = storage.defineItem<string[]>(
     fallback: [],
   }
 );
+
+export const optionsStorage = storage.defineItem<{ isOn: boolean }>(
+  "local:options",
+  {
+    fallback: {
+      isOn: true,
+    },
+  }
+);

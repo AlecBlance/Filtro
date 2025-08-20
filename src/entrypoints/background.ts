@@ -11,5 +11,9 @@ export default defineBackground(async () => {
     return await includeSelectedCategoriesStorage.getValue();
   });
 
+  onMessage("options", async () => {
+    return await optionsStorage.getValue();
+  });
+
   includeCategoriesStorage.setValue(productHuntTopics);
 });

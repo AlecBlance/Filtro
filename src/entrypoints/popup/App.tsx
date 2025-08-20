@@ -1,20 +1,26 @@
 import InputTags from "@/entrypoints/popup/components/InputTags";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import InclusionSelector from "@/entrypoints/popup/components/InclusionSelector";
+import SwitchWrapper from "./components/SwitchWrapper";
 
 function App() {
   return (
     <div>
-      <div className="flex items-center shadow-[0px_18px_43px_-24px_rgba(0,_0,_0,_0.1)] py-2">
-        <img src="/icon-128.png" alt="Icon" className="w-12 h-12" />
-        <div className="flex flex-col -space-y-1">
-          <div className="flex items-end gap-x-1">
-            <h1 className="text-lg font-bold text-primary">Filtro</h1>
-            <p className="mb-[0.10rem] text-slate-500">
-              {import.meta.env.VITE_VERSION}
-            </p>
+      <div className="flex items-center shadow-[0px_18px_43px_-24px_rgba(0,_0,_0,_0.1)] py-2 justify-between">
+        <div className="flex items-center">
+          <img src="/icon-128.png" alt="Icon" className="w-12 h-12" />
+          <div className="flex flex-col -space-y-1">
+            <div className="flex items-end gap-x-1">
+              <h1 className="text-lg font-bold text-primary">Filtro</h1>
+              <p className="mb-[0.10rem] text-slate-500">
+                {import.meta.env.VITE_VERSION}
+              </p>
+            </div>
+            <p className="text-slate-500">Your Product Hunt Filter</p>
           </div>
-          <p className="text-slate-500">Your Product Hunt Filter</p>
+        </div>
+        <div className="mr-3">
+          <SwitchWrapper />
         </div>
       </div>
       <div className="p-2 space-y-2">

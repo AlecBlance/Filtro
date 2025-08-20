@@ -15,6 +15,13 @@ export default defineContentScript({
   async main() {
     const filter = await sendMessage("filter", { sync: false }, "background");
     const include = await sendMessage("include", { sync: false }, "background");
+    const options = await sendMessage<{ isOn: boolean }>(
+      "options",
+      { sync: false },
+      "background"
+    );
+
+    if (!options.isOn) return;
 
     await injectScript("/productSift.js", {
       keepInDom: true,

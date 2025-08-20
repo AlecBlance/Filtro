@@ -1,5 +1,11 @@
 # Filtro
 
+## 1.2.0
+
+### Minor Changes
+
+- 20d5a30: add switch
+
 ## 1.1.0
 
 ### Minor Changes

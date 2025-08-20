@@ -1,5 +1,0 @@
----
-"Filtro": minor
----
-
-add switch

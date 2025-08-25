@@ -67,3 +67,13 @@ You can install this extension from the [Firefox add-ons](https://addons.mozilla
 2. Extract the downloaded zip file
 3. In your firefox browser, navigate to `about:debugging > This Firefox > "Load Temporary Addon"`
 4. Select the `manifest.json` within the extracted zip file
+
+## Build from source
+
+1. Clone the repository, and navigate to the S3BucketList folder
+2. Install [pnpm](https://pnpm.io/installation)
+3. Do `pnpm i` to install the required modules
+4. Do `pnpm zip` for chrome-compatible version or `pnpm zip:firefox` for firefox-compatible version.
+5. A zip file will be created in the `dist/` folder
+6. Follow the manual installation steps above on how to install the extension.
+

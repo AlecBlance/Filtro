@@ -1,5 +1,0 @@
----
-"Filtro": patch
----
-
-add notice

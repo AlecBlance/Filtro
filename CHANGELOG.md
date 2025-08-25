@@ -1,5 +1,11 @@
 # Filtro
 
+## 1.2.2
+
+### Patch Changes
+
+- 06031cb: fixed filters getting removed
+
 ## 1.2.1
 
 ### Patch Changes

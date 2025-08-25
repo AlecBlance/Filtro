@@ -1,6 +1,6 @@
 import { FilterData, ICategory } from "@/@types";
 
-export const filter = storage.defineItem<FilterData>("local:filter", {
+export const filter = storage.defineItem<FilterData>("sync:filter", {
   fallback: {
     urlFilter: [],
     productTitleFilter: [],
@@ -10,21 +10,21 @@ export const filter = storage.defineItem<FilterData>("local:filter", {
 });
 
 export const includeCategoriesStorage = storage.defineItem<ICategory[]>(
-  "local:includeCategories",
+  "sync:includeCategories",
   {
     fallback: [],
   }
 );
 
 export const includeSelectedCategoriesStorage = storage.defineItem<string[]>(
-  "local:includeSelectedCategories",
+  "sync:includeSelectedCategories",
   {
     fallback: [],
   }
 );
 
 export const optionsStorage = storage.defineItem<{ isOn: boolean }>(
-  "local:options",
+  "sync:options",
   {
     fallback: {
       isOn: true,

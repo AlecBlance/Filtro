@@ -1,5 +1,11 @@
 # Filtro
 
+## 1.2.1
+
+### Patch Changes
+
+- 78a3d7f: add notice
+
 ## 1.2.0
 
 ### Minor Changes

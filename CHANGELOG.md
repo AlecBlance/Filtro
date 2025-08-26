@@ -1,5 +1,11 @@
 # Filtro
 
+## 1.2.3
+
+### Patch Changes
+
+- ab77b14: remove sync
+
 ## 1.2.2
 
 ### Patch Changes

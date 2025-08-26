@@ -1,0 +1,5 @@
+---
+"Filtro": patch
+---
+
+remove sync
